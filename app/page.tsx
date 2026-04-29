@@ -1,65 +1,47 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main style={{ fontFamily: "Inter, sans-serif", background: "#fff", minHeight: "100vh" }}>
+      <nav style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "20px 48px", borderBottom: "1px solid #f0f0f0" }}>
+        <div style={{ fontSize: 22, fontWeight: 700 }}>
+          Gift<span style={{ color: "#c8a96e" }}>Luxe</span>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div style={{ display: "flex", gap: 32, fontSize: 14, color: "#555" }}>
+          <span style={{ cursor: "pointer" }}>Products</span>
+          <span style={{ cursor: "pointer" }}>For Business</span>
+          <span style={{ cursor: "pointer" }}>Pricing</span>
         </div>
-      </main>
-    </div>
+        <button style={{ background: "#1a1a1a", color: "#fff", border: "none", padding: "10px 24px", borderRadius: 6, fontSize: 14, cursor: "pointer" }}>
+          Login
+        </button>
+      </nav>
+      <section style={{ background: "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)", color: "#fff", padding: "80px 48px" }}>
+        <h1 style={{ fontSize: 52, fontWeight: 800, lineHeight: 1.1 }}>
+          Branded Gifts<br />Your Team<br /><span style={{ color: "#c8a96e" }}>Will Love</span>
+        </h1>
+        <p style={{ fontSize: 18, color: "#aaa", marginTop: 20 }}>Custom branded merchandise for your business.</p>
+        <button style={{ marginTop: 36, background: "#c8a96e", color: "#000", border: "none", padding: "16px 36px", borderRadius: 6, fontSize: 16, fontWeight: 700, cursor: "pointer" }}>
+          Browse Products
+        </button>
+      </section>
+      <section style={{ padding: "64px 48px" }}>
+        <h2 style={{ fontSize: 32, fontWeight: 700, marginBottom: 40 }}>Shop by Category</h2>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 20 }}>
+          {[
+            { name: "Tech & Gadgets", color: "#f0f4ff", icon: "PC" },
+            { name: "Lifestyle", color: "#fff4f0", icon: "LF" },
+            { name: "Food & Drink", color: "#f0fff4", icon: "FD" },
+            { name: "Apparel", color: "#fdf0ff", icon: "AP" },
+          ].map((cat) => (
+            <div key={cat.name} style={{ background: cat.color, borderRadius: 12, padding: "32px 24px", cursor: "pointer" }}>
+              <div style={{ fontSize: 18, fontWeight: 600 }}>{cat.name}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+      <footer style={{ background: "#1a1a1a", color: "#888", padding: "32px 48px", display: "flex", justifyContent: "space-between", fontSize: 14 }}>
+        <div style={{ color: "#fff", fontWeight: 700, fontSize: 18 }}>Gift<span style={{ color: "#c8a96e" }}>Luxe</span></div>
+        <div>2025 GiftLuxe. All rights reserved.</div>
+      </footer>
+    </main>
   );
 }
