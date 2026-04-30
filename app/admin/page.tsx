@@ -65,8 +65,10 @@ export default function AdminPage() {
     return urls;
   }
 
-  async function saveProduct() {
-    if (!newProduct.name || !newProduct.base_price) return alert("Name and price required");
+async function saveProduct() {
+    console.log("Saving...");
+    const supabase = getSupabase();
+    console.log("URL:", process.env.NEXT_PUBLIC_SUPABASE_URL);    if (!newProduct.name || !newProduct.base_price) return alert("Name and price required");
     setUploading(true);
     const supabase = getSupabase();
     const imageUrls = await uploadImages();
